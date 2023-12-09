@@ -3,11 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle>                              +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 13:33:48 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/03 14:23:16 by uolle            ###   ########.fr       */
+/*   Created: 2023/12/07 16:39:31 by Diogo-ss          #+#    #+#             */
+/*   Updated: 2023/12/07 16:40:53 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void) { return (0); }
+#include "../includes/push_swap.h"
+
+int main(int argc, char **argv) {}
