@@ -1,26 +1,27 @@
-## ########################################################################## ##
-##                                                                            ##
-##                                                        :::      ::::::::   ##
-##   Makefile                                           :+:      :+:    :+:   ##
-##                                                    +:+ +:+         +:+     ##
-##   By: uolle <uolle>                              +#+  +:+       +#+        ##
-##                                                +#+#+#+#+#+   +#+           ##
-##   Created: 2023/12/05 19:59:58 by uolle             #+#    #+#             ##
-##   Updated: 2023/12/05 20:04:56 by uolle            ###   ########.fr       ##
-##                                                                            ##
-## ########################################################################## ##
+# *******************************************************
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/14 11:49:35 by uolle             #+#    #+#              #
+#    Updated: 2023/12/14 11:50:13 by uolle            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 # -- Variables
 HDRDIR       = includes
 SRCSDIR      = srcs
 LIBSDIR      = libs
-OBJDIR			 = objs
+OBJDIR       = objs
 
 SRC_FILES = $(wildcard $(SRCSDIR)/*.c)
-OBJ_FILES = $(SRC_FILES:$(SRCSDIR)/%.c=$(OBJDIR)/%.o)
+OBJ_FILES = $(patsubst $(SRCSDIR)/%.c,$(OBJDIR)/%.o,$(SRC_FILES))
 
 CC = cc
-CFLAG = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 INC_FLAGS = -I $(HDRDIR)
 RM = rm -rf
 MKDIR = mkdir -p
@@ -31,31 +32,34 @@ COLOR_RESET = \033[0m
 COLOR_INFO = \033[0;94m
 COLOR_SUCCESS = \033[0;92m
 
+.PHONY: all clean fclean re libft
+
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	@cp $(LIBSDIR)/libft.a .
-	@mv libft.a $(NAME)
-	@$(CC) $(CFLAGS) -I $(HDRDIR) $(OBJS) $(LIBSDIR)/libft.a -o $(NAME)
-	@echo "$(COLOR_SUCCESS)ft_printf has been successfully compiled$(COLOR_RESET)"
+	@echo "$(COLOR_INFO)Linking: $(NAME) $(COLOR_RESET)"
+	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJ_FILES) -L$(LIBSDIR) -lft -o $(NAME)
+	@echo "$(COLOR_SUCCESS)$(NAME) has been successfully compiled$(COLOR_RESET)"
 
-$(OBJDIR)/%.o: $(SRCSDIR)/%.c
-	@make -C $(LIBSDIR)
-	@mkdir -p $(OBJDIR)
+$(OBJDIR)/%.o: $(SRCSDIR)/%.c | $(OBJDIR) libft
 	@echo "$(COLOR_INFO)Compiling: $< $(COLOR_RESET)"
 	@$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
 
+$(OBJDIR):
+	@$(MKDIR) $(OBJDIR)
+
+libft:
+	@make -C $(LIBSDIR)
+
 clean:
-	@$(RM) $(OBJ_FILES)
+	@$(RM) $(OBJDIR)
 	@make clean -C $(LIBSDIR)
 	@echo "$(COLOR_INFO)$(NAME) object files cleaned!$(COLOR_RESET)"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) -f $(LIBSDIR)/libft.a
 	@echo "$(COLOR_SUCCESS)$(NAME) executable has been cleaned!$(COLOR_RESET)"
 
 re: fclean all
 	@echo "$(COLOR_SUCCESS)Cleaned and rebuilt successfully!$(COLOR_RESET)"
 
-.PHONY: all clean fclean re
