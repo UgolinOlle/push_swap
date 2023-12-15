@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/11 13:29:19 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/15 16:00:16 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <limits.h>
 
-static t_stack *ft_get_last_stack(t_stack *stack) {
+t_stack *ft_get_last_stack(t_stack *stack) {
   while (stack && stack->next)
     stack = stack->next;
   return (stack);
@@ -57,6 +58,28 @@ void ft_new_stack(t_stack *stack, int nbr) {
   stack->next = NULL;
 }
 
+void ft_indexation(t_stack *stack, int ssize) {
+  t_stack *current;
+  t_stack *max_node;
+  int max_value;
+
+  while (ssize-- > 0) {
+    current = stack;
+    max_value = INT_MIN;
+    max_node = NULL;
+
+    while (current) {
+      if (current->value > max_value && current->index == 0) {
+        max_value = current->value;
+        max_node = current;
+      }
+      current = current->next;
+    }
+    if (max_node)
+      max_node->index = ssize + 1;
+  }
+}
+
 void ft_init_stack(char **argv, t_stack *stack) {
   int i;
   int tmp;
@@ -67,7 +90,7 @@ void ft_init_stack(char **argv, t_stack *stack) {
   new = NULL;
   while (argv[i]) {
     tmp = ft_atoi(argv[i]);
-    if (tmp > INT_MIN && tmp < INT_MAX)
+    if (tmp < INT_MIN && tmp > INT_MAX)
       ft_handle_error("[ERROR] - Wrong digit.");
     if (i == 1)
       ft_new_stack(stack, tmp);
@@ -75,6 +98,7 @@ void ft_init_stack(char **argv, t_stack *stack) {
       ft_new_stack(new, tmp);
       ft_push_bottom_stack(stack, new);
     }
+    ft_print_list(stack);
     i++;
   }
 }
