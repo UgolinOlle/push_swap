@@ -20,3 +20,14 @@ int ft_stack_sorted(t_stack *stack) {
   }
   return (1);
 }
+
+void ft_print_list(t_stack *stack) {
+  t_stack *temp = stack;
+  while (temp != NULL) {
+    printf("Value: %d, Index: %d, Pos: %d, Target Pos: %d, Cost A: %d, Cost B: "
+           "%d\n",
+           temp->value, temp->index, temp->pos, temp->target_pos, temp->cost_a,
+           temp->cost_b);
+    temp = temp->next;
+  }
+}
