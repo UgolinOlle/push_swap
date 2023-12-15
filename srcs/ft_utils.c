@@ -101,16 +101,16 @@ int ft_count_values(char **values) {
  * @param argv char The count of command-line arguments.
  */
 int ft_is_digit(char *argv) {
-  int i;
+  int i = 0;
 
-  i = 0;
+  if ((argv[i] == '-' || argv[i] == '+') && argv[i + 1] != '\0')
+    i++;
+  else if (argv[i] == '-' || argv[i] == '+')
+    return 0;
   while (argv[i] != '\0') {
-    printf("argv[i] = %c\n", argv[i]);
-    if (argv[i] == '-' || argv[i] == '+' || argv[i + 1] == ' ')
-      i++;
-    if (argv[i] == '\0' && ft_isdigit(argv[i]) == 0)
-      return (0);
+    if (!(argv[i] >= '0' && argv[i] <= '9'))
+      return 0;
     i++;
   }
-  return (1);
+  return 1;
 }
