@@ -37,6 +37,7 @@ void ft_print_list(t_stack *stack);
 t_stack *ft_get_last_stack(t_stack *stack);
 int ft_stack_len(t_stack *stack);
 void ft_new_stack(t_stack *stack, int nbr);
+void ft_indexation(t_stack *stack, int ssize);
 void ft_init_stack(char **argv, t_stack *stack);
 
 // -- PUSH
