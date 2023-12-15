@@ -17,7 +17,7 @@ static void ft_swap(t_stack *stack) {
   long int tmp;
 
   if (stack == NULL && stack->next == NULL)
-    ft_handle_error("An error occured, cannot swap.");
+    return;
   tmp = stack->value;
   stack->value = stack->next->value;
   stack->next->value = tmp;

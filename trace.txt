@@ -1,0 +1,10 @@
+** PARSING ERRORS DETECTED, PLEASE REFER TO THE TESTS **
+
+** KO ON THESE TESTS **
+
+./push_swap 3 1 2 | ./checker_Mac 3 1 2
+
+./push_swap 1 3 2 | ./checker_Mac 1 3 2
+
+./push_swap 3 2 1 | ./checker_Mac 3 2 1
+

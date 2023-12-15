@@ -80,3 +80,37 @@ char **ft_join_split(char **argv) {
   split = ft_split(str, ' ');
   return (split);
 }
+
+/**
+ * Count number of values inside double pointer
+ *
+ * @param values char The count of command-line arguments.
+ */
+int ft_count_values(char **values) {
+  int i;
+
+  i = 0;
+  while (values[i] != NULL)
+    i++;
+  return (i);
+}
+
+/**
+ * Check if argv[i] is a digit
+ *
+ * @param argv char The count of command-line arguments.
+ */
+int ft_is_digit(char *argv) {
+  int i;
+
+  i = 0;
+  while (argv[i] != '\0') {
+    printf("argv[i] = %c\n", argv[i]);
+    if (argv[i] == '-' || argv[i] == '+' || argv[i + 1] == ' ')
+      i++;
+    if (argv[i] == '\0' && ft_isdigit(argv[i]) == 0)
+      return (0);
+    i++;
+  }
+  return (1);
+}

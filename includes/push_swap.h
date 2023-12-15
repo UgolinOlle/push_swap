@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/15 20:29:54 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/16 00:52:32 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,24 @@ int ft_stack_sorted(t_stack *stack);
 int ft_duplicate_check(char **argv);
 int ft_duplicate_sign_check(char **argv);
 char **ft_join_split(char **argv);
+int ft_count_values(char **values);
+int ft_is_digit(char *str);
 
 // -- UTILS STACK
-void ft_push_bottom_stack(t_stack *stack, t_stack *new_stack);
+void ft_push_bottom(t_stack **head, t_stack *new_node);
 t_stack *ft_get_last_stack(t_stack *stack);
 int ft_stack_len(t_stack *stack);
+void ft_print_stack(t_stack *stack);
 
 // -- INIT
-void ft_new_stack(t_stack *stack, int nbr);
+void ft_new_stack(t_stack **head, int nbr);
 void ft_indexation(t_stack *stack, int ssize);
-void ft_init_stack(int argc, char **argv, t_stack *stack);
+void ft_init_stack(int len_values, char **values, t_stack **stack);
+
+// -- SORT
+void ft_sort_three(t_stack **stack_a);
+
+// -- OPERATIONS -- //
 
 // -- PUSH
 void ft_pa(t_stack *stack_a, t_stack *stack_b);

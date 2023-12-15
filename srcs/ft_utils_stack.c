@@ -12,17 +12,26 @@
 
 #include "../includes/push_swap.h"
 
-void ft_push_bottom_stack(t_stack *stack, t_stack *new_stack) {
-  t_stack *tmp;
+/**
+ * @brief Push a new node to the bottom of the stack.
+ *
+ * @param head t_stack The head of the stack.
+ * @param new t_stack The new node to be added at bottom to the stack.
+ */
+void ft_push_bottom(t_stack **head, t_stack *new_node) {
+  t_stack *current;
 
-  if (!stack) {
-    stack = new_stack;
+  if (!head || !new_node)
+    return;
+  if (!*head) {
+    *head = new_node;
     return;
   }
-  if (!new_stack)
-    return;
-  tmp = ft_get_last_stack(stack);
-  tmp->next = new_stack;
+  current = *head;
+  while (current->next) {
+    current = current->next;
+  }
+  current->next = new_node;
 }
 
 int ft_stack_sorted(t_stack *stack) {
@@ -40,6 +49,12 @@ t_stack *ft_get_last_stack(t_stack *stack) {
   return (stack);
 }
 
+/**
+ * @brief Get length of stack.
+ *
+ * @param stack The stack to be counted.
+ * @return int The length of the stack.
+ */
 int ft_stack_len(t_stack *stack) {
   int i;
 
@@ -51,4 +66,21 @@ int ft_stack_len(t_stack *stack) {
     i++;
   }
   return (i);
+}
+
+/**
+ * @brief Prints all values of each element in a linked list of t_stack.
+ *
+ * @param stack The head of the linked list of t_stack to be printed.
+ */
+void ft_print_stack(t_stack *stack) {
+  t_stack *current = stack;
+
+  while (current != NULL) {
+    printf("Value: %d, Index: %d, Pos: %d, Target_Pos: %d, Cost_A: %d, Cost_B: "
+           "%d\n",
+           current->value, current->index, current->pos, current->target_pos,
+           current->cost_a, current->cost_b);
+    current = current->next;
+  }
 }
