@@ -22,22 +22,21 @@
  * represents a valid digit. If an error is found, the function triggers
  * an error handling routine.
  */
-static void	ft_check_args(int argc, char **values)
-{
-	int	i;
+static void ft_check_args(int argc, char **argv) {
+  int i;
 
-	if (argc < 2)
-		ft_handle_error("[ERROR] - You have less than 2 arguments.");
-	i = 1;
-	while (values[i] != NULL)
-	{
-		if (ft_isdigit(ft_atoi(values[i])) && ft_duplicate_check(values) == 0
-			|| ft_duplicate_sign_check(values) == 0)
-			ft_handle_error("[ERROR] - One of number is not digit.");
-		if (ft_atoi(values[i]) > INT_MAX || ft_atoi(values[i]) < INT_MIN)
-			ft_handle_error("[ERROR] - One of number is out of range.");
-		i++;
-	}
+  if (argc < 2)
+    ft_handle_error("[ERROR] - You have less than 2 arguments.");
+  i = 0;
+  while (argv[i] != NULL) {
+    if (ft_isdigit(ft_atoi(argv[i])) || ft_duplicate_check(argv) == 0 ||
+        ft_duplicate_sign_check(argv) == 0)
+      ft_handle_error(
+          "[ERROR] - One of number is not digit or duplicated or bad sign.");
+    if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+      ft_handle_error("[ERROR] - One of number is out of range.");
+    i++;
+  }
 }
 
 /**
@@ -50,11 +49,10 @@ static void	ft_check_args(int argc, char **values)
  * Checks if the size of the stack is 2 and if the stack is not already
  * sorted. If these conditions are met, it performs a swap operation.
  */
-static void	ft_sorting(t_stack *stack_1, t_stack *stack_2, int ssize)
-{
-	(void)stack_2;
-	if (ssize == 2 && ft_stack_sorted(stack_1) == 1)
-		ft_sa(stack_1);
+static void ft_sorting(t_stack *stack_1, t_stack *stack_2, int ssize) {
+  (void)stack_2;
+  if (ssize == 2 && ft_stack_sorted(stack_1) == 1)
+    ft_sa(stack_1);
 }
 
 /**
@@ -67,21 +65,20 @@ static void	ft_sorting(t_stack *stack_1, t_stack *stack_2, int ssize)
  * Initializes stacks, checks arguments, performs sorting operations,
  * and manages the overall flow of the push_swap program.
  */
-int	main(int argc, char **argv)
-{
-	t_stack	*stack_1;
-	t_stack	*stack_2;
-	int		ssize;
-	char	**values;
+int main(int argc, char **argv) {
+  t_stack *stack_1;
+  t_stack *stack_2;
+  char **values;
+  int ssize;
 
-	values = ft_join_split(argv);
-	ft_check_args(argc, values);
-	stack_2 = NULL;
-	stack_1 = NULL;
-	ft_init_stack(argc, argv, stack_1);
-	ssize = ft_stack_len(stack_1);
-	ft_indexation(stack_1, ssize);
-	ft_print_list(stack_1);
-	ft_sorting(stack_1, stack_2, ssize);
-	return (0);
+  ft_check_args(argc, argv);
+  values = ft_join_split(argv);
+  stack_1 = NULL;
+  stack_2 = NULL;
+  ft_init_stack(argc, argv, stack_1);
+  ssize = ft_stack_len(stack_1);
+  ft_indexation(stack_1, ssize);
+  ft_sorting(stack_1, stack_2, ssize);
+  free(values);
+  return (0);
 }
