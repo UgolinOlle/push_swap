@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
+/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/15 17:01:10 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/15 20:29:54 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ typedef struct s_stack {
 
 // -- UTILS
 int ft_stack_sorted(t_stack *stack);
-void ft_print_list(t_stack *stack);
+int ft_duplicate_check(char **argv);
+int ft_duplicate_sign_check(char **argv);
+char **ft_join_split(char **argv);
 
 // -- UTILS STACK
+void ft_push_bottom_stack(t_stack *stack, t_stack *new_stack);
 t_stack *ft_get_last_stack(t_stack *stack);
 int ft_stack_len(t_stack *stack);
+
+// -- INIT
 void ft_new_stack(t_stack *stack, int nbr);
 void ft_indexation(t_stack *stack, int ssize);
-void ft_init_stack(char **argv, t_stack *stack);
+void ft_init_stack(int argc, char **argv, t_stack *stack);
 
 // -- PUSH
 void ft_pa(t_stack *stack_a, t_stack *stack_b);

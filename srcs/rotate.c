@@ -13,11 +13,18 @@
 #include "../includes/push_swap.h"
 #include <unistd.h>
 
+/**
+ * Rotates the stack.
+ *
+ * @param stack The stack to be rotated.
+ *
+ * Moves the first node of the stack to the end of the stack.
+ */
 static void ft_rotate(t_stack *stack) {
   t_stack *tmp_node;
   t_stack *last_node;
 
-  tmp_node = last_node;
+  tmp_node = stack;
   stack = stack->next;
   last_node = ft_get_last_stack(stack);
   tmp_node->next = NULL;
