@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:53:03 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/15 20:30:21 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/16 12:13:22 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /**
- * Check if argv don't have duplicated number
+ * Check if there is no dulicate number in command-line arguments
  *
  * @param argv char The count of command-line arguments.
  */
@@ -25,9 +25,8 @@ int ft_duplicate_check(char **argv) {
   while (argv[i] != NULL) {
     j = i + 1;
     while (argv[j] != NULL) {
-      if (ft_atoi(argv[i]) == ft_atoi(argv[j])) {
+      if (ft_strcmp(argv[i], argv[j]) == 0)
         return (0);
-      }
       j++;
     }
     i++;

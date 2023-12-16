@@ -14,6 +14,7 @@
 #define PUSH_SWAP_H
 
 #include "../libs/includes/libft.h"
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
