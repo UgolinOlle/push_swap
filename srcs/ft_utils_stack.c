@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/15 20:29:42 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/16 17:51:21 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,41 @@
  * @param head t_stack The head of the stack.
  * @param new t_stack The new node to be added at bottom to the stack.
  */
-void ft_push_bottom(t_stack **head, t_stack *new_node) {
-  t_stack *current;
+void	ft_push_bottom(t_stack **head, t_stack *new_node)
+{
+	t_stack	*current;
 
-  if (!head || !new_node)
-    return;
-  if (!*head) {
-    *head = new_node;
-    return;
-  }
-  current = *head;
-  while (current->next) {
-    current = current->next;
-  }
-  current->next = new_node;
+	if (!head || !new_node)
+		return ;
+	if (!*head)
+	{
+		*head = new_node;
+		return ;
+	}
+	current = *head;
+	while (current->next)
+	{
+		current = current->next;
+	}
+	current->next = new_node;
 }
 
-int ft_stack_sorted(t_stack *stack) {
-  while (stack->next) {
-    if (stack->value > stack->next->value)
-      return (0);
-    stack = stack->next;
-  }
-  return (1);
+int	ft_stack_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
-t_stack *ft_get_last_stack(t_stack *stack) {
-  while (stack && stack->next)
-    stack = stack->next;
-  return (stack);
+t_stack	*ft_get_last_stack(t_stack *stack)
+{
+	while (stack && stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
 /**
@@ -55,32 +61,17 @@ t_stack *ft_get_last_stack(t_stack *stack) {
  * @param stack The stack to be counted.
  * @return int The length of the stack.
  */
-int ft_stack_len(t_stack *stack) {
-  int i;
+int	ft_stack_len(t_stack *stack)
+{
+	int	i;
 
-  i = 0;
-  if (!stack)
-    return (0);
-  while (stack) {
-    stack = stack->next;
-    i++;
-  }
-  return (i);
-}
-
-/**
- * @brief Prints all values of each element in a linked list of t_stack.
- *
- * @param stack The head of the linked list of t_stack to be printed.
- */
-void ft_print_stack(t_stack *stack) {
-  t_stack *current = stack;
-
-  while (current != NULL) {
-    printf("Value: %d, Index: %d, Pos: %d, Target_Pos: %d, Cost_A: %d, Cost_B: "
-           "%d\n",
-           current->value, current->index, current->pos, current->target_pos,
-           current->cost_a, current->cost_b);
-    current = current->next;
-  }
+	i = 0;
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
