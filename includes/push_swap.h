@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/16 00:52:32 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/16 20:27:25 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ void ft_init_stack(int len_values, char **values, t_stack **stack);
 
 // -- SORT
 void ft_sort_three(t_stack **stack_a);
+
+// -- RADIX UTILS
+void ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
+void ft_calc_index(t_stack **stack_a, t_stack **stack_b);
+void ft_calc_target(t_stack **stack_a, t_stack **stack_b);
+void ft_calc_cost(t_stack **stack_a, t_stack **stack_b);
+
+// -- RADIX
+void ft_radix(t_stack **stack_a, t_stack **stack_b);
 
 // -- OPERATIONS -- //
 
