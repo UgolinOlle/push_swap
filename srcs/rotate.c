@@ -14,21 +14,25 @@
 #include <unistd.h>
 
 /**
- * Rotates the stack.
+ * @brief Rotate the first element of the stack to the bottom.
  *
  * @param stack The stack to be rotated.
- *
- * Moves the first node of the stack to the end of the stack.
  */
 static void ft_rotate(t_stack *stack) {
-  t_stack *tmp_node;
-  t_stack *last_node;
+  int tmp_value;
+  int tmp_index;
 
-  tmp_node = stack;
-  stack = stack->next;
-  last_node = ft_get_last_stack(stack);
-  tmp_node->next = NULL;
-  last_node->next = stack;
+  if (!stack || !stack->next)
+    return;
+  tmp_value = stack->value;
+  tmp_index = stack->index;
+  while (stack->next) {
+    stack->value = stack->next->value;
+    stack->index = stack->next->index;
+    stack = stack->next;
+  }
+  stack->value = tmp_value;
+  stack->index = tmp_index;
 }
 
 void ft_ra(t_stack *stack) {

@@ -13,20 +13,26 @@
 #include "../includes/push_swap.h"
 #include <unistd.h>
 
+/**
+ * @brief Rotate the last stack to the top of the stack
+ *
+ * @param stack The stack to be rotated.
+ */
 static void ft_reverse_rotate(t_stack *stack) {
-  t_stack *before_last_node;
-  t_stack *last_node;
+  int last_value;
+  int last_index;
 
-  last_node = stack;
-  before_last_node = NULL;
-
-  while (last_node->next) {
-    before_last_node = last_node;
-    last_node = last_node->next;
+  last_value = stack->value;
+  last_index = stack->index;
+  while (stack->next) {
+    stack->value = stack->next->value;
+    stack->index = stack->next->index;
+    stack = stack->next;
+    printf("last_value: %d\n", last_value);
+    printf("last_index: %d\n", last_index);
   }
-  before_last_node->next = NULL;
-  last_node->next = stack;
-  stack = last_node;
+  stack->value = last_value;
+  stack->index = last_index;
 }
 
 void ft_rra(t_stack *stack) {
