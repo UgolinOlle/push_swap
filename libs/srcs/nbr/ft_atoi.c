@@ -3,32 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
+/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 23:04:16 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/09/05 10:09:40 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/16 12:27:35 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-int	ft_atoi(const char *str)
-{
-	int	sign;
-	int	i;
-	int	res;
+/**
+ * Atoi converts the initial portion of the string pointed to by str to int
+ *
+ * @param str The string to convert
+ * @return The converted value
+ */
+int ft_atoi(const char *str) {
+  int i;
+  int sign;
+  long result;
 
-	sign = 1;
-	i = 0;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		sign = 1 - 2 * (str[i++] == '-');
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (res * sign);
+  i = 0;
+  sign = 1;
+  result = 0;
+  while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+    i++;
+  if (str[i] == '-')
+    sign = -sign;
+  if (str[i] == '-' || str[i] == '+')
+    i++;
+  while (str[i] >= '0' && str[i] <= '9') {
+    result = result * 10 + (str[i++] - '0');
+    if (result > 2147483647 && sign == 1)
+      return (-1);
+    if (result > 2147483648 && sign == -1)
+      return (0);
+  }
+  return (result * sign);
 }

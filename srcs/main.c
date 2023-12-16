@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/16 00:52:54 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/16 12:32:42 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void ft_check_args(int argc, char **argv) {
     if (ft_is_digit(argv[i]) == 0 || ft_duplicate_check(argv) == 0 ||
         ft_duplicate_sign_check(argv) == 0)
       ft_handle_error("Error\n");
-    if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+    if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
       ft_handle_error("Error\n");
     i++;
   }
