@@ -52,15 +52,6 @@ void ft_init_stack(int len_values, char **values, t_stack **stack);
 // -- SORT
 void ft_sort_three(t_stack **stack_a);
 
-// -- RADIX UTILS
-void ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
-void ft_calc_index(t_stack **stack_a, t_stack **stack_b);
-void ft_calc_target(t_stack **stack_a, t_stack **stack_b);
-void ft_calc_cost(t_stack **stack_a, t_stack **stack_b);
-
-// -- RADIX
-void ft_radix(t_stack **stack_a, t_stack **stack_b);
-
 // -- OPERATIONS -- //
 
 // -- PUSH

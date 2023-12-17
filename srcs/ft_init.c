@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:28:32 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/15 20:29:30 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/16 17:51:06 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,26 @@
  * @param head The head of the stack.
  * @param nbr The value to be added to the stack.
  */
-void ft_new_stack(t_stack **head, int nbr) {
-  t_stack *new_node;
+void	ft_new_stack(t_stack **head, int nbr)
+{
+	t_stack	*new_node;
 
-  new_node = malloc(sizeof(t_stack));
-  if (!head)
-    return;
-  new_node->value = nbr;
-  new_node->index = 0;
-  new_node->pos = -1;
-  new_node->target_pos = -1;
-  new_node->cost_a = -1;
-  new_node->cost_b = -1;
-  new_node->next = NULL;
-
-  *head = new_node;
+	new_node = malloc(sizeof(t_stack));
+	if (!head)
+		return ;
+	new_node->value = nbr;
+	new_node->index = 0;
+	new_node->pos = -1;
+	new_node->target_pos = -1;
+	new_node->cost_a = -1;
+	new_node->cost_b = -1;
+	new_node->next = NULL;
+	*head = new_node;
 }
 
 /**
  * @brief Assigns a descending index to each element in a stack, based on their
  * value.
- *
  * This function iteratively finds the element with the highest value that has
  * not yet been indexed and assigns a descending index starting from the size of
  * the stack
@@ -47,31 +46,35 @@ void ft_new_stack(t_stack **head, int nbr) {
  * @param stack_a Pointer to the head of the stack.
  * @param stack_size The number of elements in the stack.
  */
-void ft_indexation(t_stack *stack_a, int stack_size) {
-  int i;
-  int max;
-  t_stack *current;
+void	ft_indexation(t_stack *stack_a, int stack_size)
+{
+	int		i;
+	int		max;
+	t_stack	*current;
 
-  i = 0;
-  while (i < stack_size) {
-    max = INT_MIN;
-    current = stack_a;
-    while (current) {
-      if (current->value > max && current->index == 0) {
-        max = current->value;
-      }
-      current = current->next;
-    }
-    current = stack_a;
-    while (current) {
-      if (current->value == max) {
-        current->index = stack_size - i;
-        break;
-      }
-      current = current->next;
-    }
-    i++;
-  }
+	i = 0;
+	while (i < stack_size)
+	{
+		max = INT_MIN;
+		current = stack_a;
+		while (current)
+		{
+			if (current->value > max && current->index == 0)
+				max = current->value;
+			current = current->next;
+		}
+		current = stack_a;
+		while (current)
+		{
+			if (current->value == max)
+			{
+				current->index = stack_size - i;
+				break ;
+			}
+			current = current->next;
+		}
+		i++;
+	}
 }
 
 /**
@@ -81,18 +84,23 @@ void ft_indexation(t_stack *stack_a, int stack_size) {
  * @param values The array of values from the command-line arguments.
  * @param stack_a The stack to be filled.
  */
-void ft_init_stack(int len_values, char **values, t_stack **stack_a) {
-  t_stack *new_node;
-  int i;
+void	ft_init_stack(int len_values, char **values, t_stack **stack_a)
+{
+	t_stack	*new_node;
+	int		i;
 
-  i = 0;
-  while (i < len_values) {
-    if (i == 0) {
-      ft_new_stack(stack_a, ft_atoi(values[i]));
-    } else {
-      ft_new_stack(&new_node, ft_atoi(values[i]));
-      ft_push_bottom(stack_a, new_node);
-    }
-    i++;
-  }
+	i = 0;
+	while (i < len_values)
+	{
+		if (i == 0)
+		{
+			ft_new_stack(stack_a, ft_atoi(values[i]));
+		}
+		else
+		{
+			ft_new_stack(&new_node, ft_atoi(values[i]));
+			ft_push_bottom(stack_a, new_node);
+		}
+		i++;
+	}
 }
