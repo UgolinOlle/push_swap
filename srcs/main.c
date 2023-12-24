@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/16 20:32:39 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/17 17:36:20 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static void ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize) {
     ft_sa(*stack_a);
   else if (ssize == 3 && ft_stack_sorted(*stack_a) == 0)
     ft_sort_three(stack_a);
+  else
+    ft_big_sort(stack_a, stack_b);
 }
 
 /**
