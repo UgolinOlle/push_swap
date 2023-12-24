@@ -6,7 +6,7 @@
 /*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/16 20:27:25 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/17 17:36:17 by uolle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+// -------------------------------------------------------------------------------------
+// //
+
 // -- STRUCTURE
 typedef struct s_stack {
   int value;
@@ -29,6 +32,9 @@ typedef struct s_stack {
   int cost_b;
   struct s_stack *next;
 } t_stack;
+
+// -------------------------------------------------------------------------------------
+// //
 
 // -- UTILS
 int ft_stack_sorted(t_stack *stack);
@@ -52,7 +58,10 @@ void ft_init_stack(int len_values, char **values, t_stack **stack);
 // -- SORT
 void ft_sort_three(t_stack **stack_a);
 
-// -- OPERATIONS -- //
+// -- BIG SORT
+void ft_big_sort(t_stack **stack_a, t_stack **stack_b);
+
+// -------------------------------------------------------------------------------------
 
 // -- PUSH
 void ft_pa(t_stack *stack_a, t_stack *stack_b);
