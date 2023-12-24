@@ -17,19 +17,18 @@
  *
  * @param stack The stack to be swapped.
  */
-static void	ft_swap(t_stack *stack)
-{
-	int	tmp_value;
-	int	tmp_index;
+static void ft_swap(t_stack **stack) {
+  int tmp_value;
+  int tmp_index;
 
-	if (!stack || !stack->next)
-		return ;
-	tmp_value = stack->value;
-	tmp_index = stack->index;
-	stack->value = stack->next->value;
-	stack->index = stack->next->index;
-	stack->next->value = tmp_value;
-	stack->next->index = tmp_index;
+  if (!*stack || !(*stack)->next)
+    return;
+  tmp_value = (*stack)->value;
+  tmp_index = (*stack)->index;
+  (*stack)->value = (*stack)->next->value;
+  (*stack)->index = (*stack)->next->index;
+  (*stack)->next->value = tmp_value;
+  (*stack)->next->index = tmp_index;
 }
 
 /**
@@ -37,10 +36,9 @@ static void	ft_swap(t_stack *stack)
  *
  * @param stack_a The stack to be swapped.
  */
-void	ft_sa(t_stack *stack_a)
-{
-	ft_swap(stack_a);
-	ft_putstr_fd("sa\n", STDOUT_FILENO);
+void ft_sa(t_stack **stack_a) {
+  ft_swap(stack_a);
+  ft_putstr_fd("sa\n", STDOUT_FILENO);
 }
 
 /**
@@ -48,10 +46,9 @@ void	ft_sa(t_stack *stack_a)
  *
  * @param stack_b The stack to be swapped.
  */
-void	ft_sb(t_stack *stack_b)
-{
-	ft_swap(stack_b);
-	ft_putstr_fd("sb\n", STDOUT_FILENO);
+void ft_sb(t_stack **stack_b) {
+  ft_swap(stack_b);
+  ft_putstr_fd("sb\n", STDOUT_FILENO);
 }
 
 /**
@@ -60,9 +57,8 @@ void	ft_sb(t_stack *stack_b)
  * @param stack_a The stack to be swapped.
  * @param stack_b The stack to be swapped.
  */
-void	ft_ss(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_swap(stack_a);
-	ft_swap(stack_b);
-	ft_putstr_fd("ss\n", STDOUT_FILENO);
+void ft_ss(t_stack **stack_a, t_stack **stack_b) {
+  ft_swap(stack_a);
+  ft_swap(stack_b);
+  ft_putstr_fd("ss\n", STDOUT_FILENO);
 }

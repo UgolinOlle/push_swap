@@ -18,18 +18,16 @@
  * @param stack The stack to be checked.
  * @return int The highest index of the stack.
  */
-static int	ft_get_highest_index(t_stack *stack)
-{
-	int	highest_index;
+static int ft_get_highest_index(t_stack *stack) {
+  int highest_index;
 
-	highest_index = 0;
-	while (stack)
-	{
-		if (stack->index > highest_index)
-			highest_index = stack->index;
-		stack = stack->next;
-	}
-	return (highest_index);
+  highest_index = 0;
+  while (stack) {
+    if (stack->index > highest_index)
+      highest_index = stack->index;
+    stack = stack->next;
+  }
+  return (highest_index);
 }
 
 /**
@@ -37,15 +35,14 @@ static int	ft_get_highest_index(t_stack *stack)
  *
  * @param stack The stack to be sorted.
  */
-void	ft_sort_three(t_stack **stack)
-{
-	int	highest_index;
+void ft_sort_three(t_stack **stack) {
+  int highest_index;
 
-	highest_index = ft_get_highest_index(*stack);
-	if ((*stack)->index == highest_index)
-		ft_ra(*stack);
-	else if ((*stack)->next->index == highest_index)
-		ft_rra(*stack);
-	if ((*stack)->index > (*stack)->next->index)
-		ft_sa(*stack);
+  highest_index = ft_get_highest_index(*stack);
+  if ((*stack)->index == highest_index)
+    ft_ra(stack);
+  else if ((*stack)->next->index == highest_index)
+    ft_rra(stack);
+  if ((*stack)->index > (*stack)->next->index)
+    ft_sa(stack);
 }
