@@ -22,15 +22,15 @@ static void ft_transfer(t_stack **stack_a, t_stack **stack_b) {
   i = 0;
   while (ssize > 6 && i < ssize && pushed < ssize - 6) {
     if ((*stack_a)->index < ssize / 2) {
-      ft_pb(*stack_a, *stack_b);
+      ft_pb(stack_a, stack_b);
       pushed++;
     } else {
-      ft_ra(*stack_a);
+      ft_ra(stack_a);
     }
     i++;
   }
   while (ssize - pushed > 3) {
-    ft_pb(*stack_a, *stack_b);
+    ft_pb(stack_a, stack_b);
     pushed++;
   }
 }

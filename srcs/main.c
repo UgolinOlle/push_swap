@@ -49,13 +49,11 @@ static void ft_check_args(int argc, char **argv) {
  * sorted. If these conditions are met, it performs a swap operation.
  */
 static void ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize) {
-  if (ft_stack_sorted(*stack_a) == 1)
-    return;
   if (ssize == 2 && ft_stack_sorted(*stack_a) == 0)
-    ft_sa(*stack_a);
+    ft_sa(stack_a);
   else if (ssize == 3 && ft_stack_sorted(*stack_a) == 0)
     ft_sort_three(stack_a);
-  else
+  else if (ssize > 3 && ft_stack_sorted(*stack_a) == 0)
     ft_big_sort(stack_a, stack_b);
 }
 
