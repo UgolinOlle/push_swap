@@ -69,14 +69,17 @@ int ft_stack_len(t_stack *stack) {
 }
 
 /**
- * @brief Print all element of the stack.
+ * @brief Print all element of stack.
  *
  * @param stack The stack to be printed.
  */
 void ft_print_stack(t_stack *stack) {
-  while (stack) {
-    ft_putnbr_fd(stack->value, 1);
-    ft_putchar_fd('\n', 1);
+  printf("Stack elements:\n");
+  while (stack != NULL) {
+    printf("Value: %d, Index: %d, Position: %d, Target Position: %d, Cost A: "
+           "%d, Cost B: %d\n",
+           stack->value, stack->index, stack->pos, stack->target_pos,
+           stack->cost_a, stack->cost_b);
     stack = stack->next;
   }
 }
