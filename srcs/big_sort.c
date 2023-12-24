@@ -37,5 +37,5 @@ static void ft_transfer(t_stack **stack_a, t_stack **stack_b) {
 
 void ft_big_sort(t_stack **stack_a, t_stack **stack_b) {
   ft_transfer(stack_a, stack_b);
-  printf("stack_b->value: %d\n", (*stack_b)->value);
+  ft_print_stack(*stack_b);
 }
