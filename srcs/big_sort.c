@@ -12,6 +12,13 @@
 
 #include "../includes/push_swap.h"
 
+/**
+ * @brief Transfer elements from stack_a to stack_b except the three first one.
+ *
+ * @param stack_a t_stack The main stack.
+ * @param stack_b t_stack The stack to which elements will be transferred.
+ * @return void
+ */
 static void ft_transfer(t_stack **stack_a, t_stack **stack_b) {
   int ssize;
   int pushed;
@@ -35,7 +42,19 @@ static void ft_transfer(t_stack **stack_a, t_stack **stack_b) {
   }
 }
 
+/**
+ * @brief Sorts more than three elements in stack_a.
+ *
+ * @param stack_a t_stack The main stack.
+ * @param stack_b t_stack The second stack.
+ * @return void
+ */
 void ft_big_sort(t_stack **stack_a, t_stack **stack_b) {
   ft_transfer(stack_a, stack_b);
+  ft_sort_three(stack_a);
+  while (*stack_b) {
+    ft_find_target(stack_a, stack_b);
+    ft_find_cost(stack_a, stack_b);
+  }
   ft_print_stack(*stack_b);
 }

@@ -56,9 +56,6 @@ void ft_init_stack(int len_values, char **values, t_stack **stack);
 // -- Sort
 void ft_sort_three(t_stack **stack_a);
 
-// -- Radix
-void ft_radix_sort(t_stack **stack_a, t_stack **stack_b);
-
 // -- Big sort
 void ft_big_sort(t_stack **stack_a, t_stack **stack_b);
 
