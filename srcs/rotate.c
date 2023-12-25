@@ -18,20 +18,18 @@
  * @param stack The stack to be rotated.
  */
 static void ft_rotate(t_stack **stack) {
-  int tmp_value;
-  int tmp_index;
+  t_stack *tmp;
+  t_stack *last;
 
   if (!*stack || !(*stack)->next)
     return;
-  tmp_value = (*stack)->value;
-  tmp_index = (*stack)->index;
-  while ((*stack)->next) {
-    (*stack)->value = (*stack)->next->value;
-    (*stack)->index = (*stack)->next->index;
-    (*stack) = (*stack)->next;
-  }
-  (*stack)->value = tmp_value;
-  (*stack)->index = tmp_index;
+  tmp = *stack;
+  last = *stack;
+  while (last->next)
+    last = last->next;
+  *stack = (*stack)->next;
+  tmp->next = NULL;
+  last->next = tmp;
 }
 
 void ft_ra(t_stack **stack) {

@@ -16,20 +16,21 @@
  * @brief Rotate the last stack to the top of the stack
  *
  * @param stack The stack to be rotated.
+ * @return void
  */
 static void ft_reverse_rotate(t_stack **stack) {
-  int last_value;
-  int last_index;
+  t_stack *tmp;
+  t_stack *last;
 
-  last_value = (*stack)->value;
-  last_index = (*stack)->index;
-  while ((*stack)->next) {
-    (*stack)->value = (*stack)->next->value;
-    (*stack)->index = (*stack)->next->index;
-    (*stack) = (*stack)->next;
-  }
-  (*stack)->value = last_value;
-  (*stack)->index = last_index;
+  if (!*stack || !(*stack)->next)
+    return;
+  tmp = *stack;
+  while (tmp->next->next)
+    tmp = tmp->next;
+  last = tmp->next;
+  tmp->next = NULL;
+  last->next = *stack;
+  *stack = last;
 }
 
 void ft_rra(t_stack **stack) {
