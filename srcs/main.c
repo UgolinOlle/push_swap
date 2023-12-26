@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:34:33 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:18:25 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
  *
  * @param argc The count of arguments.
  * @param argv The array of arguments.
+ * @return void
  *
  * @note Verifies that the number of arguments is sufficient and each argument
  * represents a valid digit. If an error is found, the function triggers
  * an error handling routine.
- *
  */
 static void	ft_check_args(int argc, char **argv)
 {
@@ -47,10 +47,10 @@ static void	ft_check_args(int argc, char **argv)
  * @param stack_1 The primary stack to be sorted.
  * @param stack_2 The secondary stack (not used in this function).
  * @param ssize The size of the primary stack.
+ * @return void
  *
  * @note Checks if the size of the stack is 2 and if the stack is not already
  * sorted. If these conditions are met, it performs a swap operation.
- *
  */
 static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
 {
@@ -62,7 +62,7 @@ static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
 		ft_radix(stack_a, stack_b);
 }
 
-/**f
+/**
  * @brief The main function of the push_swap program. Initializes stacks, checks
  * arguments, performs sorting operations, and manages the overall flow of the
  * push_swap program.
@@ -70,7 +70,6 @@ static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
  * @param argc The count of command-line arguments.
  * @param argv The array of command-line arguments.
  * @return An integer to signal the end of the program.
- *
  */
 int	main(int argc, char **argv)
 {

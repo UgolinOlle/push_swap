@@ -6,16 +6,17 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:53:03 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:36:37 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:18:02 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /**
- * Check if there is no dulicate number in command-line arguments
+ * @brief Check if there is no dulicate number in command-line arguments
  *
  * @param argv char The count of command-line arguments.
+ * @return int 1 if no duplicate, 0 if duplicate.
  */
 int	ft_duplicate_check(char **argv)
 {
@@ -38,9 +39,10 @@ int	ft_duplicate_check(char **argv)
 }
 
 /**
- * Check if there is no duplicate sign in argv
+ * @brief Check if there is no duplicate sign in argv
  *
  * @param argv char The count of command-line arguments.
+ * @return int 1 if no duplicate sign, 0 if duplicate sign.
  */
 int	ft_duplicate_sign_check(char **argv)
 {
@@ -66,9 +68,10 @@ int	ft_duplicate_sign_check(char **argv)
 }
 
 /**
- * Join and split all values in argv
+ * @brief Join and split all values in argv
  *
  * @param argv char The count of command-line arguments.
+ * @return char** The array of values from the command-line arguments.
  */
 char	**ft_join_split(char **argv)
 {
@@ -89,9 +92,10 @@ char	**ft_join_split(char **argv)
 }
 
 /**
- * Count number of values inside double pointer
+ * @brief Count number of values inside double pointer
  *
  * @param values char The count of command-line arguments.
+ * @return int The number of values inside double pointer.
  */
 int	ft_count_values(char **values)
 {
@@ -104,9 +108,10 @@ int	ft_count_values(char **values)
 }
 
 /**
- * Check if argv[i] is a digit
+ * @brief Check if argv[i] is a digit
  *
  * @param argv char The count of command-line arguments.
+ * @return int 1 if argv[i] is a digit, 0 if not.
  */
 int	ft_is_digit(char *argv)
 {

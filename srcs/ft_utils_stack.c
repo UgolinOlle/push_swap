@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/26 18:36:26 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:16:57 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  *
  * @param head t_stack The head of the stack.
  * @param new t_stack The new node to be added at bottom to the stack.
+ * @return void
  */
 void	ft_push_bottom(t_stack **head, t_stack *new_node)
 {
@@ -37,6 +38,12 @@ void	ft_push_bottom(t_stack **head, t_stack *new_node)
 	current->next = new_node;
 }
 
+/**
+ * @brief Check if stack is sorted.
+ *
+ * @param stack The stack to be checked.
+ * @return int 1 if sorted, 0 if not.
+ */
 int	ft_stack_sorted(t_stack *stack)
 {
 	while (stack->next)
@@ -48,6 +55,12 @@ int	ft_stack_sorted(t_stack *stack)
 	return (1);
 }
 
+/**
+ * @brief Get last element of stack.
+ *
+ * @param stack The stack to be checked.
+ * @return t_stack* The last element of the stack.
+ */
 t_stack	*ft_get_last_stack(t_stack *stack)
 {
 	while (stack && stack->next)

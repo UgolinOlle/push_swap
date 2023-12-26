@@ -6,12 +6,19 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 18:51:15 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:36:45 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:18:41 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/**
+ * @brief Push a new node to the top of the stack.
+ *
+ * @param stack The stack to be pushed.
+ * @param head The head of the stack.
+ * @return void
+*/
 static void	ft_push(t_stack **stack, t_stack **head)
 {
 	t_stack	*tmp;

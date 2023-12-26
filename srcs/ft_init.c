@@ -6,18 +6,19 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:28:32 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/26 18:35:56 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:16:17 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /**
- * @breif Creates a new node of type t_stack and adds it to the top of the
+ * @brief Creates a new node of type t_stack and adds it to the top of the
  * stack.
  *
  * @param head The head of the stack.
  * @param nbr The value to be added to the stack.
+ * @return void
  */
 void	ft_new_stack(t_stack **head, int nbr)
 {
@@ -41,6 +42,7 @@ void	ft_new_stack(t_stack **head, int nbr)
  *
  * @param stack_a Pointer to the head of the stack.
  * @param stack_size The number of elements in the stack.
+ * @return void
  */
 void	ft_indexation(t_stack *stack_a, int stack_size)
 {
@@ -79,6 +81,7 @@ void	ft_indexation(t_stack *stack_a, int stack_size)
  * @param len_values The length of the values array.
  * @param values The array of values from the command-line arguments.
  * @param stack_a The stack to be filled.
+ * @return void
  */
 void	ft_init_stack(int len_values, char **values, t_stack **stack_a)
 {

@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:07:01 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:36:57 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:19:40 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * @brief Swap the first two elements at the top of the stack.
  *
  * @param stack The stack to be swapped.
+ * @return void
  */
 static void	ft_swap(t_stack **stack)
 {
@@ -32,34 +33,18 @@ static void	ft_swap(t_stack **stack)
 	(*stack)->next->index = tmp_index;
 }
 
-/**
- * @brief Swap the first two elements at the top of the stack a.
- *
- * @param stack_a The stack to be swapped.
- */
 void	ft_sa(t_stack **stack_a)
 {
 	ft_swap(stack_a);
 	ft_putstr_fd("sa\n", STDOUT_FILENO);
 }
 
-/**
- * @brief Swap the first two elements at the top of the stack b.
- *
- * @param stack_b The stack to be swapped.
- */
 void	ft_sb(t_stack **stack_b)
 {
 	ft_swap(stack_b);
 	ft_putstr_fd("sb\n", STDOUT_FILENO);
 }
 
-/**
- * @brief Swap the first two elements at the top of the stack a and b.
- *
- * @param stack_a The stack to be swapped.
- * @param stack_b The stack to be swapped.
- */
 void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_swap(stack_a);

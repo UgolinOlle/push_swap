@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:54:22 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:36:52 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 22:18:55 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * @brief Rotate the first element of the stack to the bottom.
  *
  * @param stack The stack to be rotated.
+ * @return void
  */
 static void	ft_rotate(t_stack **stack)
 {
