@@ -6,14 +6,15 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:58:55 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/08/28 14:55:10 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 18:37:43 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c) {
-  while ('0' <= c && c <= '9')
-    return (1);
-  return (0);
+int	ft_isdigit(int c)
+{
+	while ('0' <= c && c <= '9')
+		return (1);
+	return (0);
 }

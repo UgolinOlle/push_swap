@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:28:32 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/16 17:51:06 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 18:35:56 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ void	ft_new_stack(t_stack **head, int nbr)
 		return ;
 	new_node->value = nbr;
 	new_node->index = 0;
-	new_node->pos = -1;
-	new_node->target_pos = -1;
-	new_node->cost_a = -1;
-	new_node->cost_b = -1;
 	new_node->next = NULL;
 	*head = new_node;
 }
