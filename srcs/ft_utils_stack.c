@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/16 17:51:21 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2023/12/26 11:30:21 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,20 @@ int ft_stack_len(t_stack *stack) {
 }
 
 /**
- * @brief Print all element of stack.
+ * @brief Free all element from t_stack.
  *
- * @param stack The stack to be printed.
+ * @param stack The stack to be freed.
+ * @return void
  */
-void ft_print_stack(t_stack *stack) {
-  printf("Stack elements:\n");
-  while (stack != NULL) {
-    printf("Value: %d, Index: %d, Position: %d, Target Position: %d, Cost A: "
-           "%d, Cost B: %d\n",
-           stack->value, stack->index, stack->pos, stack->target_pos,
-           stack->cost_a, stack->cost_b);
-    stack = stack->next;
+void ft_free_stack(t_stack **stack) {
+  t_stack *tmp;
+
+  if (!stack || !*stack)
+    return;
+  while (stack) {
+    tmp = (*stack)->next;
+    free(stack);
+    *stack = tmp;
   }
+  *stack = NULL;
 }

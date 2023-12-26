@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uolle <uolle@student.42bangkok.com>        +#+  +:+       +#+        */
+/*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/24 15:15:40 by uolle            ###   ########.fr       */
+/*   Updated: 2023/12/26 11:27:17 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// -------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------
 
 // -- STRUCTURE
 typedef struct s_stack {
@@ -32,7 +32,7 @@ typedef struct s_stack {
   struct s_stack *next;
 } t_stack;
 
-// -------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------
 
 // -- Utils for common
 int ft_stack_sorted(t_stack *stack);
@@ -46,7 +46,6 @@ int ft_is_digit(char *str);
 void ft_push_bottom(t_stack **head, t_stack *new_node);
 t_stack *ft_get_last_stack(t_stack *stack);
 int ft_stack_len(t_stack *stack);
-void ft_print_stack(t_stack *stack);
 
 // -- Initialization
 void ft_new_stack(t_stack **head, int nbr);
@@ -62,8 +61,10 @@ void ft_big_sort(t_stack **stack_a, t_stack **stack_b);
 // -- Big sort utils
 void ft_find_target(t_stack **stack_a, t_stack **stack_b);
 void ft_find_cost(t_stack **stack_a, t_stack **stack_b);
+int ft_get_lowest_pos(t_stack **stack);
+void ft_free_stack(t_stack **stack);
 
-// -------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------
 
 // -- Push
 void ft_pa(t_stack **stack_a, t_stack **stack_b);
