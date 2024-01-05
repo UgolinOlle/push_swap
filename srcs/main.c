@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 22:18:25 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/05 09:16:27 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,15 @@ static void	ft_check_args(int argc, char **argv)
  */
 static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
 {
-	if (ssize == 2 && ft_stack_sorted(*stack_a) == 0)
+	if (ft_stack_sorted(*stack_a) == 1)
+		return ;
+	if (ssize == 2)
 		ft_sa(stack_a);
-	else if (ssize == 3 && ft_stack_sorted(*stack_a) == 0)
+	else if (ssize == 3)
 		ft_sort_three(stack_a);
-	else if (ssize > 3 && ft_stack_sorted(*stack_a) == 0)
+	else if (ssize == 5)
+		ft_sort_five(stack_a, stack_b);
+	else
 		ft_radix(stack_a, stack_b);
 }
 
@@ -88,5 +92,7 @@ int	main(int argc, char **argv)
 	ssize = ft_stack_len(stack_a);
 	ft_indexation(stack_a, ssize);
 	ft_sorting(&stack_a, &stack_b, ssize);
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 	return (0);
 }

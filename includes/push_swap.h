@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 18:35:58 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/05 09:16:46 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int					ft_is_digit(char *str);
 void				ft_push_bottom(t_stack **head, t_stack *new_node);
 t_stack				*ft_get_last_stack(t_stack *stack);
 int					ft_stack_len(t_stack *stack);
-void				ft_print_stack(t_stack *stack);
+void				ft_free_stack(t_stack **stack);
 
 // -- Initialization
 void				ft_new_stack(t_stack **head, int nbr);
@@ -53,7 +53,8 @@ void				ft_init_stack(int len_values, char **values,
 
 // -- Sort
 void				ft_sort_three(t_stack **stack_a);
-
+void				ft_sort_four(t_stack **stack_a, t_stack **stack_b);
+void				ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 // -- Radix
 void				ft_radix(t_stack **stack_a, t_stack **stack_b);
 
