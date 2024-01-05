@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2024/01/05 09:16:36 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/05 09:32:47 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ void	ft_free_stack(t_stack **stack)
 
 	if (!stack || !*stack)
 		return ;
-	while (stack)
+	while (*stack)
 	{
 		tmp = (*stack)->next;
-		free(stack);
+		free(*stack);
 		*stack = tmp;
 	}
 	*stack = NULL;
