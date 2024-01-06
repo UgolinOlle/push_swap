@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/05 09:16:27 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/06 19:32:12 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@
  * represents a valid digit. If an error is found, the function triggers
  * an error handling routine.
  */
-static void	ft_check_args(int argc, char **argv)
+static void	ft_check_args(int argc, char **values)
 {
 	int	i;
 
 	if (argc < 2)
-		return ;
-	i = 1;
-	while (argv[i] != NULL)
+		ft_handle_error("Error\n");
+	i = 0;
+	while (values[i] != NULL)
 	{
-		if (ft_is_digit(argv[i]) == 0 || ft_duplicate_check(argv) == 0
-			|| ft_duplicate_sign_check(argv) == 0)
+		if (ft_is_digit(values[i]) == 0 || ft_duplicate_check(values) == 0
+			|| ft_duplicate_sign_check(values) == 0)
 			ft_handle_error("Error\n");
-		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
+		if (ft_atol(values[i]) > INT_MAX || ft_atol(values[i]) < INT_MIN)
 			ft_handle_error("Error\n");
 		i++;
 	}
@@ -60,6 +60,8 @@ static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
 		ft_sa(stack_a);
 	else if (ssize == 3)
 		ft_sort_three(stack_a);
+	else if (ssize == 4)
+		ft_sort_four(stack_a, stack_b);
 	else if (ssize == 5)
 		ft_sort_five(stack_a, stack_b);
 	else
@@ -83,8 +85,8 @@ int	main(int argc, char **argv)
 	int		len_values;
 	int		ssize;
 
-	ft_check_args(argc, argv);
 	values = ft_join_split(argv);
+	ft_check_args(argc, values);
 	stack_a = NULL;
 	stack_b = NULL;
 	len_values = ft_count_values(values);
@@ -94,5 +96,6 @@ int	main(int argc, char **argv)
 	ft_sorting(&stack_a, &stack_b, ssize);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
+	free(values);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/05 09:16:46 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/06 19:41:53 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stack
 
 // -- Utils for common
 int					ft_stack_sorted(t_stack *stack);
-int					ft_duplicate_check(char **argv);
+int					ft_duplicate_check(char **values);
 int					ft_duplicate_sign_check(char **argv);
 char				**ft_join_split(char **argv);
 int					ft_count_values(char **values);

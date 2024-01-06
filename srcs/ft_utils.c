@@ -6,30 +6,30 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:53:03 by uolle             #+#    #+#             */
-/*   Updated: 2023/12/26 22:18:02 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/06 19:41:35 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /**
- * @brief Check if there is no dulicate number in command-line arguments
+ * @brief Check if there are no duplicate numbers in values provided.
  *
- * @param argv char The count of command-line arguments.
- * @return int 1 if no duplicate, 0 if duplicate.
+ * @param values char The count of command-line arguments.
+ * @return int 1 if no duplicate numbers, 0 if duplicate numbers.
  */
-int	ft_duplicate_check(char **argv)
+int	ft_duplicate_check(char **values)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (argv[i] != NULL)
+	i = 0;
+	while (values[i] != NULL)
 	{
 		j = i + 1;
-		while (argv[j] != NULL)
+		while (values[j] != NULL)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
+			if (ft_atol(values[i]) == ft_atol(values[j]))
 				return (0);
 			j++;
 		}
@@ -80,6 +80,8 @@ char	**ft_join_split(char **argv)
 	int		i;
 
 	i = 1;
+	if (argv[i] == NULL || ft_strlen(argv[i]) == 0)
+		ft_handle_error("Error\n");
 	str = ft_strdup("");
 	while (argv[i] != NULL)
 	{
