@@ -58,6 +58,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
+	@make fclean -C $(LIBSDIR)
 	@echo "$(COLOR_SUCCESS)$(NAME) executable has been cleaned!$(COLOR_RESET)"
 
 re: fclean all
