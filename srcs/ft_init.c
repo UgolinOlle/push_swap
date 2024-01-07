@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:28:32 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2023/12/26 22:16:17 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/07 12:07:10 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_indexation(t_stack *stack_a, int stack_size)
 	int		max;
 	t_stack	*current;
 
-	i = 0;
+	i = 1;
 	while (i < stack_size)
 	{
 		max = INT_MIN;
