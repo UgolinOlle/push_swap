@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/06 19:32:12 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/07 12:23:06 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void	ft_check_args(int argc, char **values)
 /**
  * @brief Sorts the stack of integers if the stack size is 2.
  *
- * @param stack_1 The primary stack to be sorted.
- * @param stack_2 The secondary stack (not used in this function).
+ * @param stack_a The primary stack to be sorted.
+ * @param stack_b The secondary stack (not used in this function).
  * @param ssize The size of the primary stack.
  * @return void
  *
@@ -64,7 +64,7 @@ static void	ft_sorting(t_stack **stack_a, t_stack **stack_b, int ssize)
 		ft_sort_four(stack_a, stack_b);
 	else if (ssize == 5)
 		ft_sort_five(stack_a, stack_b);
-	else
+	else if (ssize > 5)
 		ft_radix(stack_a, stack_b);
 }
 

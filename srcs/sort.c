@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 09:17:10 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2024/01/06 19:20:09 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/07 12:22:54 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 	ssize = ft_stack_len(*stack_a);
 	while (ssize--)
 	{
-		if ((*stack_a)->index == 1 || (*stack_a)->index == 2)
+		if ((*stack_a)->index == 0 || (*stack_a)->index == 1)
 			ft_pb(stack_a, stack_b);
 		else
 			ft_ra(stack_a);

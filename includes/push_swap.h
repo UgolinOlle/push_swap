@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/06 19:41:53 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/07 12:21:27 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void				ft_push_bottom(t_stack **head, t_stack *new_node);
 t_stack				*ft_get_last_stack(t_stack *stack);
 int					ft_stack_len(t_stack *stack);
 void				ft_free_stack(t_stack **stack);
+void				ft_print_stack(t_stack *stack);
 
 // -- Initialization
 void				ft_new_stack(t_stack **head, int nbr);

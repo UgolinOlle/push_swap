@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:50:45 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/04 23:16:10 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/07 12:00:08 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@
  * @param stack The stack to be checked.
  * @return int The maximum bit of the stack.
  */
-static int	ft_get_max_bit(t_stack **stack)
+static int	get_max_bits(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*head;
 	int		max;
-	int		max_bit;
+	int		max_bits;
 
-	tmp = *stack;
-	max = tmp->index;
-	max_bit = 0;
-	while (tmp)
+	head = *stack;
+	max = head->index;
+	max_bits = 0;
+	while (head)
 	{
-		if (tmp->index > max_bit)
-			max_bit = tmp->index;
-		tmp = tmp->next;
+		if (head->index > max)
+			max = head->index;
+		head = head->next;
 	}
-	while ((max >> max_bit) != 0)
-		max_bit++;
-	return (max_bit);
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
 }
 
 /**
@@ -49,23 +49,23 @@ static int	ft_get_max_bit(t_stack **stack)
  */
 void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
+	t_stack	*head_a;
 	int		i;
 	int		j;
-	int		ssize;
-	int		max_bit;
+	int		size;
+	int		max_bits;
 
-	tmp = *stack_a;
 	i = 0;
-	ssize = ft_stack_len(*stack_a);
-	max_bit = ft_get_max_bit(stack_a);
-	while (i < max_bit)
+	head_a = *stack_a;
+	size = ft_stack_len(head_a);
+	max_bits = get_max_bits(stack_a);
+	while (i < max_bits)
 	{
 		j = 0;
-		while (j++ < ssize)
+		while (j++ < size)
 		{
-			tmp = *stack_a;
-			if (((tmp->value >> i) & 1) == 1)
+			head_a = *stack_a;
+			if (((head_a->index >> i) & 1) == 1)
 				ft_ra(stack_a);
 			else
 				ft_pb(stack_a, stack_b);
