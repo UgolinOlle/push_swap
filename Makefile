@@ -21,7 +21,7 @@ SRC_FILES = $(wildcard $(SRCSDIR)/*.c)
 OBJ_FILES = $(patsubst $(SRCSDIR)/%.c,$(OBJDIR)/%.o,$(SRC_FILES))
 
 CC = cc
-CFLAGS = -Werror -Wall -Wextra -fsanitize=address
+CFLAGS = -Werror -Wall -Wextra
 INC_FLAGS = -I $(HDRDIR)
 RM = rm -rf
 MKDIR = mkdir -p
