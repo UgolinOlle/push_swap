@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:44:58 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/07 12:21:27 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/09 21:10:19 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_stack
 // -----------------------------------------------------------------------
 
 // -- Utils for common
-int					ft_stack_sorted(t_stack *stack);
 int					ft_duplicate_check(char **values);
 int					ft_duplicate_sign_check(char **argv);
 char				**ft_join_split(char **argv);
@@ -41,10 +40,10 @@ int					ft_is_digit(char *str);
 
 // -- Utils for stack
 void				ft_push_bottom(t_stack **head, t_stack *new_node);
+int					ft_stack_sorted(t_stack *stack);
 t_stack				*ft_get_last_stack(t_stack *stack);
 int					ft_stack_len(t_stack *stack);
 void				ft_free_stack(t_stack **stack);
-void				ft_print_stack(t_stack *stack);
 
 // -- Initialization
 void				ft_new_stack(t_stack **head, int nbr);

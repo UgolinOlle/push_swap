@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:08:41 by ugolin-olle       #+#    #+#             */
-/*   Updated: 2024/01/07 12:21:50 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/09 21:10:33 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,4 @@ void	ft_free_stack(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
-}
-
-/**
- * @brief Print all element from t_stack.
- *
- * @param stack The stack to be printed.
- * @return void
- */
-void	ft_print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("value: %d, index: %d\n", stack->value, stack->index);
-		stack = stack->next;
-	}
 }
