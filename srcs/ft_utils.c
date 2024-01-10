@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:53:03 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/06 19:41:35 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/10 10:20:50 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,10 @@ int	ft_duplicate_sign_check(char **argv)
  */
 char	**ft_join_split(char **argv)
 {
-	char	*str;
-	char	**split;
 	int		i;
+	char	*str;
+	char	*temp;
+	char	**split;
 
 	i = 1;
 	if (argv[i] == NULL || ft_strlen(argv[i]) == 0)
@@ -85,11 +86,16 @@ char	**ft_join_split(char **argv)
 	str = ft_strdup("");
 	while (argv[i] != NULL)
 	{
+		temp = str;
 		str = ft_strjoin(str, argv[i]);
+		free(temp);
+		temp = str;
 		str = ft_strjoin(str, " ");
+		free(temp);
 		i++;
 	}
 	split = ft_split(str, ' ');
+	free(str);
 	return (split);
 }
 

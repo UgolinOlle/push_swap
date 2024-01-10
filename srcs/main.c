@@ -6,11 +6,30 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/07 12:23:06 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/10 10:53:46 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/**
+ * @brief Free the values array.
+ *
+ * @param values The array of values to be freed.
+ * @return void
+ */
+static void	ft_free_values(char **values)
+{
+	int	i;
+
+	i = 0;
+	while (values[i] != NULL)
+	{
+		free(values[i]);
+		i++;
+	}
+	free(values);
+}
 
 /**
  * @brief Checks the command-line arguments for validity.
@@ -28,15 +47,24 @@ static void	ft_check_args(int argc, char **values)
 	int	i;
 
 	if (argc < 2)
+	{
+		ft_free_values(values);
 		ft_handle_error("Error\n");
+	}
 	i = 0;
 	while (values[i] != NULL)
 	{
 		if (ft_is_digit(values[i]) == 0 || ft_duplicate_check(values) == 0
 			|| ft_duplicate_sign_check(values) == 0)
+		{
+			ft_free_values(values);
 			ft_handle_error("Error\n");
+		}
 		if (ft_atol(values[i]) > INT_MAX || ft_atol(values[i]) < INT_MIN)
+		{
+			ft_ree_values(values);
 			ft_handle_error("Error\n");
+		}
 		i++;
 	}
 }
@@ -94,8 +122,8 @@ int	main(int argc, char **argv)
 	ssize = ft_stack_len(stack_a);
 	ft_indexation(stack_a, ssize);
 	ft_sorting(&stack_a, &stack_b, ssize);
+	ft_free_values(values);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
-	free(values);
 	return (0);
 }
