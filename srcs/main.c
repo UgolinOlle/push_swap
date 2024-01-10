@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/10 10:53:46 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/10 11:01:46 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	ft_check_args(int argc, char **values)
 		}
 		if (ft_atol(values[i]) > INT_MAX || ft_atol(values[i]) < INT_MIN)
 		{
-			ft_ree_values(values);
+			ft_free_values(values);
 			ft_handle_error("Error\n");
 		}
 		i++;
