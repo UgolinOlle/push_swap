@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:57:38 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/10 11:01:46 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/11 13:47:46 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int	main(int argc, char **argv)
 	int		len_values;
 	int		ssize;
 
+	if (argc == 1)
+		return (0);
 	values = ft_join_split(argv);
 	ft_check_args(argc, values);
 	stack_a = NULL;
