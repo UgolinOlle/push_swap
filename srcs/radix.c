@@ -6,7 +6,7 @@
 /*   By: ugolin-olle <ugolin-olle@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:50:45 by uolle             #+#    #+#             */
-/*   Updated: 2024/01/07 12:00:08 by ugolin-olle      ###   ########.fr       */
+/*   Updated: 2024/01/10 22:05:03 by ugolin-olle      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
  */
 static int	get_max_bits(t_stack **stack)
 {
-	t_stack	*head;
+	t_stack	*tmp;
 	int		max;
 	int		max_bits;
 
-	head = *stack;
-	max = head->index;
+	tmp = *stack;
+	max = tmp->index;
 	max_bits = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->index > max)
-			max = head->index;
-		head = head->next;
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
 	}
 	while ((max >> max_bits) != 0)
 		max_bits++;
@@ -49,23 +49,20 @@ static int	get_max_bits(t_stack **stack)
  */
 void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*head_a;
-	int		i;
-	int		j;
-	int		size;
-	int		max_bits;
+	int	i;
+	int	j;
+	int	size;
+	int	max_bits;
 
 	i = 0;
-	head_a = *stack_a;
-	size = ft_stack_len(head_a);
+	size = ft_stack_len(*stack_a);
 	max_bits = get_max_bits(stack_a);
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			head_a = *stack_a;
-			if (((head_a->index >> i) & 1) == 1)
+			if ((((*stack_a)->index >> i) & 1) == 1)
 				ft_ra(stack_a);
 			else
 				ft_pb(stack_a, stack_b);
