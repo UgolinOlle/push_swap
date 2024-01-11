@@ -22,6 +22,7 @@ OBJ_FILES = $(patsubst $(SRCSDIR)/%.c,$(OBJDIR)/%.o,$(SRC_FILES))
 
 CC = cc
 CFLAGS = -Werror -Wall -Wextra
+HDRFLAG = includes/push_swap.h
 INC_FLAGS = -I $(HDRDIR)
 RM = rm -rf
 MKDIR = mkdir -p
@@ -41,7 +42,7 @@ $(NAME): $(OBJ_FILES)
 	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJ_FILES) -L$(LIBSDIR) -lft -o $(NAME)
 	@echo "$(COLOR_SUCCESS)$(NAME) has been successfully compiled$(COLOR_RESET)"
 
-$(OBJDIR)/%.o: $(SRCSDIR)/%.c | $(OBJDIR) libft
+$(OBJDIR)/%.o: $(SRCSDIR)/%.c $(HDRFLAG) | $(OBJDIR) libft
 	@echo "$(COLOR_INFO)Compiling: $< $(COLOR_RESET)"
 	@$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
 
